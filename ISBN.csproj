@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="ISBN.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ISBN.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ISBN.Tests\**" />
+    </ItemGroup>
+
+</Project>
