@@ -1,9 +1,9 @@
 # r9-isbn-ci-moose
 Continuous Integration exercise using ISBN kata and Azure Pipelines 
 
-- TODO: Add build status badge
-- TODO: Add link to Azure build
+[![Build Status](https://dev.azure.com/paul0287/CSD-CI-2019-10-MOOSE/_apis/build/status/paul-r9.CSD-CI-2019-10-moose?branchName=master)](https://dev.azure.com/paul0287/CSD-CI-2019-10-MOOSE/_build/latest?definitionId=6&branchName=master)
 
+[Azure DevOps Project page](https://dev.azure.com/paul0287/CSD-CI-2019-10-MOOSE)
 
 # Tasks
 - ISBN10
