@@ -1,3 +1,4 @@
+using System;
 using BookInfoProvider;
 
 namespace ISBN {
@@ -33,6 +34,12 @@ namespace ISBN {
         {
             string s = ISBN.Replace("-", "").Replace(" ", "");
             return s;
+        }
+
+        public bool ISBNChecksum(string isbn)
+        {
+            return true;
+
         }
     }
 }
