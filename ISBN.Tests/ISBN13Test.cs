@@ -19,15 +19,6 @@ namespace ISBN.Tests
             
         }
 
-    }
-}
-using BookInfoProvider;
-using Xunit;
-
-namespace ISBN
-{
-    public class ISBN13Test
-    {
         [Fact]
         public void ISBN_ShorterThan10Characters_ReturnsInvalidBookInfo()
         {
