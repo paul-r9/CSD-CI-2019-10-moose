@@ -14,7 +14,7 @@ namespace ISBN {
             BookInfo actual = sut.lookup(shortISBN);
             
             //Assert
-            Assert.Equal("ISBN must be 10 characters in length", actual.Title);
+            Assert.Equal("ISBN must be 10 or 13 characters in length", actual.Title);
         }
 
         [Fact]
@@ -24,7 +24,7 @@ namespace ISBN {
             ISBNFinder sut = new ISBNFinder();
             BookInfo actual = sut.lookup(longISBN);
             
-            Assert.Equal("ISBN must be 10 characters in length", actual.Title);
+            Assert.Equal("ISBN must be 10 or 13 characters in length", actual.Title);
         }
 
         [Fact]
