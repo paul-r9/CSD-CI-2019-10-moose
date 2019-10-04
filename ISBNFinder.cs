@@ -38,7 +38,23 @@ namespace ISBN {
 
         public bool ISBNChecksum(string isbn)
         {
-            return true;
+            var sum = 0;
+            for (var i = 0; i < isbn.Length-1; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    sum += int.Parse(isbn.Substring(i,1)) * 3;
+                }
+                else
+                {
+                    sum += int.Parse(isbn.Substring(i,1));
+                }
+            }
+
+            var mod = sum % 10;
+            var checkSum = 10 - mod;
+
+            return int.Parse(isbn.Substring(12, 1)) == checkSum;
 
         }
     }
