@@ -48,12 +48,7 @@ namespace ISBN {
             Assert.Equal(expected.ToString(), actual.ToString());
         }
         
-        //[Fact]
-        //public void Break_The_Moose_Build() {
-        //    // this test breaks the build.
-        //    // delete it and commit the change to fix the broken build
-        //    throw new Xunit.Sdk.XunitException("xUnit does not have an Assert.'Fail' ");
-        //}
+
     }
 
 }
