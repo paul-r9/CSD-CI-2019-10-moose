@@ -1,3 +1,4 @@
+using System;
 using BookInfoProvider;
 
 namespace ISBN {
@@ -25,6 +26,12 @@ namespace ISBN {
             }
             
             return bookInfo;
+        }
+
+        public bool ISBNChecksum(string isbn)
+        {
+            return true;
+
         }
     }
 }
