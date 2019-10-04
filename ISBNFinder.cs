@@ -12,19 +12,27 @@ namespace ISBN {
         }
         
         public BookInfo lookup(string ISBN) {
-            
-            if (ISBN.Length != 10) {
-                BookInfo badISBN = new BookInfo("ISBN must be 10 characters in length");
+
+            string s = CheckFormat(ISBN);
+
+            if (s.Length != 10 && s.Length != 13) {
+                BookInfo badISBN = new BookInfo("ISBN must be 10 or 13 characters in length");
                 return badISBN;
             }
 
-            BookInfo bookInfo = isbnService.retrieve(ISBN);
+            BookInfo bookInfo = isbnService.retrieve(s);
             
             if (null == bookInfo) {
                 return new BookInfo("Title not found");
             }
             
             return bookInfo;
+        }
+
+        public string CheckFormat(string ISBN)
+        {
+            string s = ISBN.Replace("-", "").Replace(" ", "");
+            return s;
         }
     }
 }
