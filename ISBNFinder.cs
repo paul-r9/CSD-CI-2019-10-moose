@@ -16,8 +16,15 @@ namespace ISBN {
 
             string s = CheckFormat(ISBN);
 
-            if (s.Length != 10 && s.Length != 13) {
+            if (s.Length != 10 && s.Length != 13)
+            {
                 BookInfo badISBN = new BookInfo("ISBN must be 10 or 13 characters in length");
+                return badISBN;
+            }
+
+            if (s.Length == 13 && !ISBNChecksum(s))
+            {
+                BookInfo badISBN = new BookInfo("ISBN failed checksum test");
                 return badISBN;
             }
 
