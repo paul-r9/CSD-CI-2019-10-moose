@@ -35,19 +35,24 @@ namespace ISBN {
             {
                 if (i % 2 == 1)
                 {
-                    sum += int.Parse(isbn.Substring(i,1)) * 3;
+                    sum += GetIntFromStringPosition(isbn, i) * 3;
                 }
                 else
                 {
-                    sum += int.Parse(isbn.Substring(i,1));
+                    sum += GetIntFromStringPosition(isbn, i);
                 }
             }
 
             var mod = sum % 10;
             var checkSum = 10 - mod;
 
-            return int.Parse(isbn.Substring(12, 1)) == checkSum;
+            return GetIntFromStringPosition(isbn, 12) == checkSum;
 
+        }
+
+        private int GetIntFromStringPosition(string baseString, int position)
+        {
+            return int.Parse(baseString.Substring(position, 1));
         }
     }
 }
