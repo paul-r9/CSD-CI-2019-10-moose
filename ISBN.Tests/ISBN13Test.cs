@@ -78,6 +78,17 @@ namespace ISBN.Tests
             //BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
             Assert.Equal(13, actual.Isbn13.Length);
         }
+        [Fact]
+        public void ISBN_CheckSpaces()
+        {
+            string ISBN = "978 0 262 13472 9";
+
+            ISBNFinder sut = new ISBNFinder();
+            BookInfo actual = sut.lookup(ISBN);
+
+            //BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+            Assert.Equal(13, actual.Isbn13.Length);
+        }
     }
 }
 
