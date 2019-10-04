@@ -1,0 +1,16 @@
+#IntelliJ / Java files
+.idea/
+.solution.json
+out/
+*.iml
+build/
+.gradle/
+
+
+#Mac
+.DS_Store
+
+#CSharp
+bin/
+obj/
+
