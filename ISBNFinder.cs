@@ -22,7 +22,7 @@ namespace ISBN {
                 return badISBN;
             }
 
-            if (s.Length == 13 && !ISBNChecksum(s))
+            if (s.Length == 13 && !Checksum13(s))
             {
                 BookInfo badISBN = new BookInfo("ISBN failed checksum test");
                 return badISBN;
@@ -43,7 +43,7 @@ namespace ISBN {
             return s;
         }
 
-        public bool ISBNChecksum(string isbn)
+        public bool Checksum13(string isbn)
         {
             var sum = 0;
             for (var i = 0; i < isbn.Length-1; i++)

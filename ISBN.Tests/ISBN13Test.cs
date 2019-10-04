@@ -14,9 +14,17 @@ namespace ISBN.Tests
             string ISBN = "9780470059029";
 
             ISBNFinder sut = new ISBNFinder();
-            Assert.True(sut.ISBNChecksum(ISBN));
+            Assert.True(sut.Checksum13(ISBN));
+        }
 
-            
+        [Fact]
+        public void ISBN13_InvalidCheckSum()
+        {
+            string ISBN = "9780470059025";
+
+            ISBNFinder sut = new ISBNFinder();
+            Assert.False(sut.Checksum13(ISBN));
+
         }
 
         [Fact]
