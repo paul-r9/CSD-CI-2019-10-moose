@@ -20,7 +20,7 @@ namespace ISBN.Tests
         }
 
         [Fact]
-        public void ISBN_ShorterThan10Characters_ReturnsInvalidBookInfo()
+        public void ISBN_ShorterThan13Characters_ReturnsInvalidBookInfo()
         {
             //Arrange
             string shortISBN = "12345";
@@ -34,7 +34,7 @@ namespace ISBN.Tests
         }
 
         [Fact]
-        public void ISBN_LongerThan10Characters_ReturnsInvalidBookInfo()
+        public void ISBN_LongerThan13Characters_ReturnsInvalidBookInfo()
         {
             string longISBN = "123456789ABCEDF";
 
@@ -45,9 +45,9 @@ namespace ISBN.Tests
         }
 
         [Fact]
-        public void ISBN_BookAvailableFromFinder()
+        public void ISBN13_BookAvailableFromFinder()
         {
-            string unknownISBN = "0553562614";
+            string unknownISBN = "0553562614678";
 
             ISBNFinder sut = new ISBNFinder();
             BookInfo actual = sut.lookup(unknownISBN);
@@ -56,14 +56,14 @@ namespace ISBN.Tests
         }
 
         [Fact]
-        public void ISBN_BookFound()
+        public void ISBN13_BookFound()
         {
-            string ISBN = "0321146530";
+            string ISBN = "9780596809485";
 
             ISBNFinder sut = new ISBNFinder();
             BookInfo actual = sut.lookup(ISBN);
 
-            BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+            BookInfo expected = new BookInfo("97 Things Every Programmer Should Know", "Kevlin Henney", "0596809484", "9780596809485");
             Assert.Equal(expected.ToString(), actual.ToString());
         }
 
