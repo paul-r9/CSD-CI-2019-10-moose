@@ -49,15 +49,9 @@ namespace ISBN {
             Assert.Equal(expected.ToString(), actual.ToString());
         }
 
-        [Fact]
-        public void Validate_ISBN13_Checksum()
-        {
-            
-            string ISBN = "9780134757599";
-            ISBNFinder sut = new ISBNFinder();
 
-            Assert.True(sut.checkISBN13(ISBN));
-        }
+       
+
     }
 
 }

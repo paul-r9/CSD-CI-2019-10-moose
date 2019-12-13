@@ -70,5 +70,14 @@ namespace BookInfoProvider {
 
             return null;
         }
+
+        public string NormalizeISBN(string isbn)
+        {
+            if (!string.IsNullOrEmpty(isbn))
+            {
+                isbn = isbn.Replace(" ", string.Empty).Replace("-", string.Empty);
+            }
+            return isbn;
+        }
     }
 }
