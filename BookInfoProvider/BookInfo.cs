@@ -18,7 +18,6 @@ namespace BookInfoProvider {
             this.author = author;
             this.ISBN10 = ISBN10;
             this.ISBN13 = ISBN13;
-            this.NormalizeISBN();
         }
         
         public BookInfo(string title) :
@@ -27,18 +26,6 @@ namespace BookInfoProvider {
 
         public override string ToString() {
             return Title + ", " + Author + " - " + ISBN10 + ", " + ISBN13; 
-        }
-
-        private void NormalizeISBN()
-        {
-            if (!string.IsNullOrEmpty(this.ISBN10))
-            {
-                this.ISBN10 = this.ISBN10.Replace(" ", string.Empty).Replace("-", string.Empty);
-            }
-            if (!string.IsNullOrEmpty(this.ISBN13))
-            {
-                this.ISBN13 = this.ISBN13.Replace(" ", string.Empty).Replace("-", string.Empty);
-            }
         }
     }
 }
