@@ -79,7 +79,32 @@ namespace ISBN {
             Assert.True(sut.checkISBN10(ISBN));
         }
 
+        [Fact]
+        public void Validate_ISBN10_Checksum_invalid()
+        {
+            string ISBN = "0134757590";
+            ISBNFinder sut = new ISBNFinder();
 
+            Assert.False(sut.checkISBN10(ISBN));
+        }
+
+        [Fact]
+        public void Validate_ISBN10_Checksum_validWithX()
+        {
+            string ISBN = "043942089X";
+            ISBNFinder sut = new ISBNFinder();
+
+            Assert.True(sut.checkISBN10(ISBN));
+        }
+
+        [Fact]
+        public void Validate_ISBN10_Checksum_invalidWithX()
+        {
+            string ISBN = "013475759X";
+            ISBNFinder sut = new ISBNFinder();
+
+            Assert.False(sut.checkISBN10(ISBN));
+        }
 
     }
 
