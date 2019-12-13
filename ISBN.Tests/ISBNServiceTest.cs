@@ -49,5 +49,16 @@ namespace ISBN.Tests
 
             Assert.True(expected.IsISBN10Size(normalizedIsbn));
         }
+
+        [Theory]
+        [InlineData("0321 - 1465 30121")]
+        public void ISBNService_Validate_ISNB13_Length(string isbn)
+        {
+
+            ISBNService expected = ISBNService.Instance;
+            string normalizedIsbn = expected.NormalizeISBN(isbn);
+
+            Assert.True(expected.IsISBN13Size(normalizedIsbn));
+        }
     }
 }

@@ -57,6 +57,11 @@ namespace BookInfoProvider {
             new string[] {"xUnit Test Patterns", "Gerard Meszaros",                    "0131495054", "9780131495050"},
         };
 
+        public bool IsISBN13Size(string isbn)
+        {
+            return isbn.Length == 13;
+        }
+
         public bool IsISBN10Size(string isbn)
         {
             return isbn.Length == 10;
