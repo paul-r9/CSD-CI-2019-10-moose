@@ -79,5 +79,12 @@ namespace BookInfoProvider {
             }
             return isbn;
         }
+
+        public bool IsISBNAllDigits(string isbn)
+        {
+            long temp = 0;
+            return long.TryParse(isbn, out temp);
+        }
+
     }
 }
