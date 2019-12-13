@@ -69,6 +69,18 @@ namespace ISBN {
             Assert.False(sut.checkISBN13(ISBN));
         }
 
+        [Fact]
+        public void Validate_ISBN10_Checksum()
+        {
+
+            string ISBN = "0134757599";
+            ISBNFinder sut = new ISBNFinder();
+
+            Assert.True(sut.checkISBN10(ISBN));
+        }
+
+
+
     }
 
 }
