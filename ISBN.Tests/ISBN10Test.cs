@@ -14,7 +14,7 @@ namespace ISBN {
             BookInfo actual = sut.lookup(shortISBN);
             
             //Assert
-            Assert.Equal("ISBN must be 10 or 13 characters in length", actual.Title);
+            Assert.Equal("ISBN must be 10 characters in length", actual.Title);
         }
 
         [Fact]
@@ -24,7 +24,7 @@ namespace ISBN {
             ISBNFinder sut = new ISBNFinder();
             BookInfo actual = sut.lookup(longISBN);
             
-            Assert.Equal("ISBN must be 10 or 13 characters in length", actual.Title);
+            Assert.Equal("ISBN must be 10 characters in length", actual.Title);
         }
 
         [Fact]
@@ -47,33 +47,7 @@ namespace ISBN {
             BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
             Assert.Equal(expected.ToString(), actual.ToString());
         }
-
-        [Fact]
-        public void ISBN10_CheckDashes()
-        {
-            string ISBN = "0-321-146-53-0";
-
-            ISBNFinder sut = new ISBNFinder();
-            BookInfo actual = sut.lookup(ISBN);
-
-            //BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
-            Assert.Equal(10, actual.Isbn10.Length);
-        }
-        [Fact]
-        public void ISBN10_CheckSpaces()
-        {
-            string ISBN = "03 21 14 653 0";
-
-            ISBNFinder sut = new ISBNFinder();
-            BookInfo actual = sut.lookup(ISBN);
-
-            //BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
-            Assert.Equal(10, actual.Isbn10.Length);
-            
-            // FORCE A FAILING BUILD
-            Assert.True(false);
-        }
-
+        
     }
 
 }

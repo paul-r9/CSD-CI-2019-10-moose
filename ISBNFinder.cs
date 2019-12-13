@@ -1,4 +1,3 @@
-using System;
 using BookInfoProvider;
 
 namespace ISBN {
@@ -13,61 +12,19 @@ namespace ISBN {
         }
         
         public BookInfo lookup(string ISBN) {
-
-            string s = CheckFormat(ISBN);
-
-            if (s.Length != 10 && s.Length != 13)
-            {
-                BookInfo badISBN = new BookInfo("ISBN must be 10 or 13 characters in length");
+            
+            if (ISBN.Length != 10) {
+                BookInfo badISBN = new BookInfo("ISBN must be 10 characters in length");
                 return badISBN;
             }
 
-            if (s.Length == 13 && !Checksum13(s))
-            {
-                BookInfo badISBN = new BookInfo("ISBN failed checksum test");
-                return badISBN;
-            }
-
-            BookInfo bookInfo = isbnService.retrieve(s);
+            BookInfo bookInfo = isbnService.retrieve(ISBN);
             
             if (null == bookInfo) {
                 return new BookInfo("Title not found");
             }
             
             return bookInfo;
-        }
-
-        public string CheckFormat(string ISBN)
-        {
-            string s = ISBN.Replace("-", "").Replace(" ", "");
-            return s;
-        }
-
-        public bool Checksum13(string isbn)
-        {
-            var sum = 0;
-            for (var i = 0; i < isbn.Length-1; i++)
-            {
-                if (i % 2 == 1)
-                {
-                    sum += GetIntFromStringPosition(isbn, i) * 3;
-                }
-                else
-                {
-                    sum += GetIntFromStringPosition(isbn, i);
-                }
-            }
-
-            var mod = sum % 10;
-            var checkSum = 10 - mod;
-
-            return GetIntFromStringPosition(isbn, 12) == checkSum;
-
-        }
-
-        private int GetIntFromStringPosition(string baseString, int position)
-        {
-            return int.Parse(baseString.Substring(position, 1));
         }
     }
 }
