@@ -43,5 +43,23 @@ namespace ISBN {
 
             return checkSum == (ISBN[12] - '0');
         }
+
+        public bool checkISBN10(string ISBN)
+        {
+            var checkSum = 0;
+            for (var i = 0; i < ISBN.Length - 1; i++)
+            {
+                checkSum += (ISBN[i] - '0') * (i + 1);
+            }
+            checkSum = (checkSum % 11);
+            if (checkSum == 10)
+            {
+                return ISBN[9] == 'X';
+            }
+            else
+            {
+                return checkSum == (ISBN[9] - '0');
+            }
+        }
     }
 }
