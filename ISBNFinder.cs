@@ -26,5 +26,22 @@ namespace ISBN {
             
             return bookInfo;
         }
+
+        public bool checkISBN13(string ISBN)
+        {
+            var checkSum = 0;
+            for (var i = 0; i < ISBN.Length - 1; i += 2)
+            {
+                checkSum += ISBN[i] - '0';
+            }
+            for (var i = 1; i < ISBN.Length - 1; i += 2)
+            {
+                checkSum += 3 * (ISBN[i] - '0');
+            }
+
+            checkSum = (10 - (checkSum % 10)) % 10;
+
+            return checkSum == (ISBN[12] - '0');
+        }
     }
 }
