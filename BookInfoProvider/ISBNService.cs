@@ -56,7 +56,12 @@ namespace BookInfoProvider {
             new string[] {"Working Effectively with Legacy Code", "Michael Feathers",  "0131177052", "9780131177055"},
             new string[] {"xUnit Test Patterns", "Gerard Meszaros",                    "0131495054", "9780131495050"},
         };
-        
+
+        public bool IsISBN10Size(string isbn)
+        {
+            return isbn.Length == 10;
+        }
+
         public BookInfo retrieve(string isbn) {
             if (10 == isbn.Length) {
                 if (booksByIsbn10.ContainsKey(isbn)) {

@@ -27,5 +27,27 @@ namespace ISBN.Tests
             
             Assert.True(expected.IsISBNAllDigits(normalizedIsbn));
         }
+
+        [Theory]
+        [InlineData("0321 - 1465A 30")]
+        public void ISBNService_Validate_Numbers_only_with_letter(string isbn)
+        {
+
+            ISBNService expected = ISBNService.Instance;
+            string normalizedIsbn = expected.NormalizeISBN(isbn);
+
+            Assert.False(expected.IsISBNAllDigits(normalizedIsbn));
+        }
+
+        [Theory]
+        [InlineData("0321 - 1465 30")]
+        public void ISBNService_Validate_ISNB10_Length(string isbn)
+        {
+
+            ISBNService expected = ISBNService.Instance;
+            string normalizedIsbn = expected.NormalizeISBN(isbn);
+
+            Assert.True(expected.IsISBN10Size(normalizedIsbn));
+        }
     }
 }
