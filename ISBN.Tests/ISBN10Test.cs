@@ -4,6 +4,13 @@ using Xunit;
 
 namespace ISBN {
     public class ISBN10Test {
+
+        [Fact]
+        public void FailingTest_VerifyBuildMachineFails() {
+            Assert.True(false, "Delete this test and push to Github to restore green build");
+        }
+        
+        
         [Fact]
         public void ISBN_ShorterThan10Characters_ReturnsInvalidBookInfo() {
             //Arrange
